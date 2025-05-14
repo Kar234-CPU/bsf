@@ -1,176 +1,108 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Friendship Page</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anđelo & Karlo - Profiles</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #1a0000;
+    color: #f8f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 3rem;
+    padding: 2rem;
+  }
+  h1.title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #ff4444;
+    text-shadow: 0 0 8px #ff0000, 0 0 20px #ff4444;
+    margin: 0;
+  }
+  .profile-container {
+    display: flex;
+    gap: 4rem;
+    max-width: 900px;
+    width: 100%;
+  }
+  .profile {
+    background: #330000;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255,0,0,0.5);
+    width: 45%;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff0000, 0 0 40px #ff4444;
+  }
+  h2 {
+    margin: 0.25rem 0 0.5rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #ff4444;
+  }
+  p.bio {
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #ffbbbb;
+    margin-bottom: 1.5rem;
+  }
+  .profile img.profile-pic {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid #ff6666;
+    box-shadow: 0 0 10px #ff4444;
+    transition: box-shadow 0.3s ease;
+  }
+  .profile:hover img.profile-pic {
+    box-shadow: 0 0 20px #ff0000;
+  }
+  @media (max-width: 650px) {
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
-      color: #f0f0f0;
-      min-height: 100vh;
-      display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
-      text-align: center;
+      padding: 1rem;
     }
-    header {
-      margin-bottom: 2rem;
-      animation: fadeInDown 1s ease forwards;
-    }
-    header h1 {
-      font-weight: 600;
-      font-size: 3rem;
-      letter-spacing: 3px;
-      margin-bottom: 0.3rem;
-      text-shadow: 0 0 10px rgba(255,255,255,0.8);
-    }
-    header p {
-      font-weight: 300;
-      font-size: 1.2rem;
-      color: #d1d1ff;
-    }
-    .container {
-      display: flex;
+    .profile-container {
       flex-direction: column;
-      gap: 3rem;
+      gap: 2rem;
+      max-width: 100%;
+    }
+    .profile {
       width: 100%;
-      max-width: 900px;
-      animation: fadeInUp 1s ease forwards;
     }
-    @media(min-width: 700px) {
-      .container {
-        flex-direction: row;
-        justify-content: space-around;
-        text-align: left;
-      }
-    }
-    .friend-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      box-shadow: 0 4px 25px rgba(0, 0, 50, 0.4);
-      padding: 2rem;
-      flex: 1 1 45%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .friend-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 40px rgba(255, 255, 255, 0.6);
-    }
-    .friend-card h2 {
-      font-weight: 600;
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #ffee8c;
-      text-shadow: 0 0 4px #fff59d;
-    }
-    .friend-card p {
-      font-weight: 300;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #e2e2ff;
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 1rem;
-      color: #bbbbee;
-      animation: fadeIn 2s ease forwards;
-    }
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Friends Forever</h1>
-    <p>Celebrating a special bond of friendship</p>
-  </header>
-  <main class="container">
-    <section class="friend-card">
+  <h1 class="title">Best friends</h1>
+  <div class="profile-container">
+    <div class="profile" tabindex="0" aria-label="Profile of Anđelo">
       <h2>Anđelo</h2>
-      <p>Im a bisexual furry femboy and even more!</p>
-    </section>
-    <section class="friend-card">
+      <p class="bio">Im a bisexual furry femboy and even more!</p>
+      <img class="profile-pic" src="and.png" alt="" />
+    </div>
+    <div class="profile" tabindex="0" aria-label="Profile of Karlo">
       <h2>Karlo</h2>
-      <p>Idk. sterling?</p>
-    </section>
-  </main>
-  <footer>
-    Made with ❤️ for friendship
-  </footer>
+      <p class="bio">Just a good friend with lots of cool interests. idk. Sterling?</p>
+      <img class="profile-pic" src="kar.png" alt="" />
+    </div>
+  </div>
 </body>
 </html>
-<!-- This is a simple HTML page that celebrates friendship with a modern design. 
-     It includes a header, two friend cards, and a footer. The design is responsive 
-     and uses CSS animations for a smooth user experience. -->
-<!-- The page is styled with a gradient background, custom fonts, and hover effects
-      on the friend cards. The content is centered and adapts to different screen sizes. 
-      The header includes a title and a subtitle, while each friend card has a name 
-      and a short description. The footer contains a simple message about friendship. -->
-<!-- The page is designed to be visually appealing and easy to read, with a focus on
-      the theme of friendship. The use of animations and hover effects adds a modern touch 
-      to the overall design. The layout is clean and organized, making it easy for users 
-      to navigate and enjoy the content. -->
-<!-- The HTML structure is semantic, with appropriate use of header, main, section, and footer
-      elements. This enhances accessibility and SEO, ensuring that the content is easily 
-      understood by both users and search engines. The use of external fonts from Google Fonts 
-      adds a unique touch to the typography, making it stand out. -->
-<!-- The CSS styles are well-organized and use variables for colors and fonts, allowing for easy
-      customization and maintenance. The use of media queries ensures that the design is responsive 
-      and looks great on all devices, from mobile phones to desktop computers. The overall design 
-      is modern, clean, and visually appealing, making it a great representation of friendship. -->
-<!-- The page is designed to be easily customizable, allowing users to change the content, colors,
-      and styles to suit their preferences. This makes it a versatile template for anyone looking 
-      to create a friendship-themed webpage. The use of comments throughout the code provides 
-      additional context and explanations, making it easy for developers to understand and modify 
-      the code as needed. -->
-<!-- The page is a great starting point for anyone looking to create a personal website,
-      a portfolio, or a blog. The design is simple yet effective, allowing users to focus on the 
-      content while still providing a visually appealing experience. The use of modern web design 
-      techniques ensures that the page is fast, responsive, and user-friendly, making it a great 
-      choice for anyone looking to showcase their work or share their thoughts with the world. -->
-<!-- The page is also a great example of how to use HTML and CSS together to create a cohesive
-      and visually appealing design. The use of semantic HTML elements helps to structure the content 
-      in a meaningful way, while the CSS styles provide the visual flair that makes the page stand out. 
-      This combination of HTML and CSS is a fundamental aspect of modern web development, and this page 
-      serves as a great example of how to implement these techniques effectively. -->
-<!-- The page is designed to be easily shareable, allowing users to spread the message of friendship
-      and connect with others. The use of social media icons or links could be added to the footer 
-      to encourage sharing and engagement. This would enhance the overall experience and allow users 
-      to connect with friends and family through the page. The design is flexible enough to accommodate 
-      these additions without compromising the overall aesthetic. -->
